@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Санс Андертейл</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="sans.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="background-image">
+        <div class="content">
+            <audio loop autoplay>
+                <source src="Toby Fox - sans.mp3" type="audio/mpeg">
+            </audio>
+            <main>
+                <img src="Sans_battle_idle.gif" alt="Санс из Андертейл" class="sans-image">
+            </main>
+            
+            <div id="conversation">
+                
+                <button onclick="attack()">АТАКОВАТЬ</button>
+                <button onclick="showMessage('У тебя нет предметов')">ПРЕДМЕТ</button>
+                <button onclick = "showMessage('Ты подействовал, но Сансу слишком лень реагировать')">ДЕЙСТВИЕ</button>
+                <button onclick = "showMessage('Санс отдыхает')">ПОЩАДИТЬ</button>
+                <p id="attackMessage"></p>
+            <script>
+                function showMessage(message) {
+    alert(message);
+}
+
+function attack() {
+    const backgroundElement = document.querySelector('.background-image');
+    backgroundElement.classList.add('attack');
+    alert('Санс атакует!');
+    const attackMessage = document.getElementById('attackMessage');
+    attackMessage.textContent = 'Ладно, мне слишком лень защищаться. Я просто сотру этот сайт и всё.';
+    startCountdown();
+
+    function startCountdown() {
+    const attackMessage = document.getElementById('attackMessage');
+    let count = 3;
+
+    const countdownInterval = setInterval(() => {
+        attackMessage.textContent = count; 
+        count--;
+
+        if (count < 0) {
+            clearInterval(countdownInterval); 
+            finishAttack();
+        }
+    }, 1000); 
+}
+
+function finishAttack() {
+    document.body.style.backgroundColor = "white";
+    const attackMessage = document.getElementById('attackMessage');
+    attackMessage.textContent = ""; 
+
+    setTimeout(() => {
+        window.location.href = "konec_mira.html";
+    }, 1000);
+}
+}
+            </script>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+body {
+    background-color: black; 
+    color: #ffffff; 
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.sans-image {
+    display: block;
+    margin: 20px auto;
+    width: 300px;
+}
+
+@font-face {
+    font-family: 'ComicSans'; 
+    src: url('ComicSansMSBold.ttf') format('truetype'); 
+}
+
+*
+{
+
+    font-family: 'ComicSans', sans-serif;
+}
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.moving-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: moveText 3s linear infinite;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.background-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('sans_sleep.png') no-repeat center center;
+    background-size: cover;
+    background-position: 50% 0;
+    opacity: 0.5; 
+    z-index: -1;
+}
+
+/* Для контента */
+.content {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: orange;
+    background-color: black;
+    outline: 3px;
+}
+
+.background-image.attack::before {
+    background: url('sans_active.png') no-repeat center center; 
+    background-size: cover;
+    background-position: 50% 0;
+    opacity: 0.5;
+}
